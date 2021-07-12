@@ -1,0 +1,80 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+
+<body>
+    <form name="formdata" id="form">
+        <table border="2px" width="500px" align="center">
+            <tr>
+                <th>Emp Id</th>
+                <td><input type="text" name="id" value="WAP-6789" /></td>
+            </tr>
+
+            <tr>
+                <th>Leave Id</th>
+                <td>
+                    <input type="text" name="leaveid" value="123" placeholder="Please enter leaveid" required />
+                </td>
+                <td><span id="demo1"></span></td>
+            </tr>
+
+            <tr>
+                <th>Salary</th>
+                <td>
+                    <input type="number" name="salary" value="30000" placeholder="Please enter salary " required />
+                </td>
+                <td><span id="demo2"></span></td>
+            </tr>
+
+            <tr>
+                <th>Leave Available</th>
+                <td>
+                    <input type="number" name="leaveavailable" placeholder="Enter leave available" required />
+                    <td><span id="demo3"></span></td>
+                </td>
+            </tr>
+            <tr>
+                <th>Leave Taken</th>
+                <td>
+                    <input type="number" name="leavetaken" placeholder="Enter leave taken" required />
+                    <td><span id="demo3"></span></td>
+                </td>
+            </tr>
+
+            <tr>
+                <th>Loss of Pay</th>
+                <td>
+                    <input type="number" name="lossofpay" readonly />
+                </td>
+            </tr>
+
+            <tr>
+                <th colspan="2">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="button" value="Show" onclick="Stockform()" /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <button type="reset" id="resetBtn">Reset</button>
+                </th>
+            </tr>
+           
+        </table>
+    </form>
+
+    <script type="text/javascript">
+        function Stockform() {
+            var salary = formdata.salary.value;
+            var leaveAvailable = formdata.leaveavailable.value;
+            var leaveTaken = +formdata.leavetaken.value;
+            const salaryPerDay = +salary / 30;
+            const loss = +(leaveAvailable - leaveTaken)
+            var lossOfPay = Math.abs(salaryPerDay * loss);
+            formdata.lossofpay.value = lossOfPay;
+
+    </script>
+</body>
+
+</html>
